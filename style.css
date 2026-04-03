@@ -82,10 +82,11 @@ header {
 
 #search-form button:hover { background: var(--accent-dim); }
 
-/* ── Two-column main ── */
+/* ── Single-column main: links on top, news fills the rest ── */
 main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
   gap: 1.25rem;
   min-height: 0;
 }
@@ -195,6 +196,5 @@ main {
   body { padding: 1.25rem; }
   header { flex-direction: column; align-items: flex-start; gap: 1rem; }
   #search-form { max-width: 100%; width: 100%; }
-  main { grid-template-columns: 1fr; }
   #clock { font-size: 3rem; }
 }
