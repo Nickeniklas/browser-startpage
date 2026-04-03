@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Start</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div id="clock-block">
+    <div id="clock">00:00:00</div>
+    <div id="date"></div>
+  </div>
+  <form id="search-form" action="https://duckduckgo.com/" method="get" target="_blank">
+    <input id="search-input" type="text" name="q" placeholder="Search DuckDuckGo…" autocomplete="off" autofocus>
+    <button type="submit">Search</button>
+  </form>
+</header>
+
+<main>
+
+  <!-- ── Links — edit these ── -->
+  <div class="card">
+    <div class="card-title">Links</div>
+    <div id="links-grid">
+      <a class="link-item" href="https://github.com" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">
+        <span>GitHub</span>
+      </a>
+      <a class="link-item" href="https://news.ycombinator.com" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=news.ycombinator.com&sz=32" alt="">
+        <span>HN</span>
+      </a>
+      <a class="link-item" href="https://finance.yahoo.com" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=finance.yahoo.com&sz=32" alt="">
+        <span>Yahoo Finance</span>
+      </a>
+      <a class="link-item" href="https://youtube.com" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="">
+        <span>YouTube</span>
+      </a>
+      <a class="link-item" href="https://gmail.com" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=gmail.com&sz=32" alt="">
+        <span>Gmail</span>
+      </a>
+      <a class="link-item" href="https://calendar.google.com" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=calendar.google.com&sz=32" alt="">
+        <span>Calendar</span>
+      </a>
+      <a class="link-item" href="https://www.tradingview.com/heatmap/stock/?color=change&dataset=SPX500&group=sector&size=market_cap_basic" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=tradingview.com&sz=32" alt="">
+        <span>S&amp;P 500 Heatmap</span>
+      </a>
+      <a class="link-item" href="https://wikipedia.org" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=wikipedia.org&sz=32" alt="">
+        <span>Wikipedia</span>
+      </a>
+      <a class="link-item" href="https://lobste.rs" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=lobste.rs&sz=32" alt="">
+        <span>Lobsters</span>
+      </a>
+      <a class="link-item" href="https://claude.ai" target="_blank" rel="noopener">
+        <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=32" alt="">
+        <span>Claude</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── Hacker News ── -->
+  <div class="card">
+    <div class="card-title">Hacker News</div>
+    <div id="news-list">
+      <div class="news-status">Loading…</div>
+    </div>
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
