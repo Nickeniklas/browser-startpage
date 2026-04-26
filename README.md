@@ -4,10 +4,14 @@ A minimal dark-themed browser start page. No build tools, no dependencies — pu
 
 ## Features
 
-- **Clock** — live time and date
+- **Clock** — live time, date, and ISO week number
 - **DuckDuckGo search** — autofocused on load
-- **Hotlinks** — pill-style quick-launch links with favicons
+- **Hotlinks** — pill-style quick-launch links with favicons, stacked above the news feed
 - **Hacker News feed** — top 20 front-page stories via the Algolia HN API, with points, comment count, and source domain
+
+## Layout
+
+Single column: hotlinks card at the top (compact, wraps to fit), news feed fills the remaining page height below.
 
 ## Usage
 
