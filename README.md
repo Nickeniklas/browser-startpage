@@ -11,7 +11,7 @@ A minimal dark-themed browser start page. No build tools, no dependencies — pu
 
 ## Layout
 
-Single column: hotlinks card at the top (compact, wraps to fit), news feed fills the remaining page height below.
+Single column: hotlinks card at the top (compact pill row, wraps to fit), news feed fills the remaining page height below. The news feed renders in a 2-column grid so headlines use the full card width.
 
 ## Usage
 
@@ -25,6 +25,7 @@ Then visit `http://localhost:8000`.
 
 ## Customisation
 
-- **Links** — edit the `<a class="link-item">` blocks in `index.html`. Favicons are fetched automatically via `google.com/s2/favicons`.
+- **Links** — edit the `<a class="link-item">` blocks in `index.html`.
+- **Favicons** — use `https://www.google.com/s2/favicons?domain=example.com&sz=32` for sites with their own domain. For GitHub Pages subpaths (e.g. `nickeniklas.github.io/myproject`), Google's service won't resolve path-specific favicons — point `src` directly at the favicon file instead (e.g. `https://nickeniklas.github.io/myproject/assets/favicon.ico`).
 - **Theme** — CSS variables in the `:root` block at the top of `style.css` control all colors.
 - **News count** — change `hitsPerPage=20` in `script.js` to show more or fewer stories.
