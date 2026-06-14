@@ -2,6 +2,10 @@
 
 A minimal dark-themed browser start page. No build tools, no dependencies — pure HTML, CSS, and JavaScript.
 
+Screenshot:
+<img width="1867" height="627" alt="image" src="https://github.com/user-attachments/assets/cf027e2a-8e3d-4cc8-862c-44d57c0a60f7" />
+
+
 ## Features
 
 - **Clock** — live time, date, and ISO week number
