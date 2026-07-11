@@ -7,6 +7,7 @@
   --accent:      #9c6fe4;
   --accent-dim:  #7a55c0;
   --accent-glow: rgba(156, 111, 228, 0.12);
+  --danger:      #e46f6f;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -101,6 +102,12 @@ main {
   overflow: hidden;
 }
 
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .card-title {
   font-size: 0.65rem;
   font-weight: 700;
@@ -110,6 +117,35 @@ main {
   margin-bottom: 1.1rem;
   flex-shrink: 0;
 }
+
+.card-header .card-title { margin-bottom: 0; }
+.card-header { margin-bottom: 1.1rem; }
+
+/* ── Links edit controls ── */
+.card-actions { display: flex; gap: 0.4rem; align-items: center; }
+
+.card-actions button {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  padding: 0.2rem 0.55rem;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.card-actions button:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+#links-edit-toggle { font-size: 0.9rem; }
+
+/* reset only visible while editing */
+#links-reset { display: none; }
+#links-card.editing #links-reset { display: inline-block; }
+#links-card.editing #links-edit-toggle { color: var(--accent); }
 
 /* ── Links pills ── */
 #links-grid {
@@ -149,6 +185,70 @@ main {
 }
 
 .link-item:hover span { color: var(--text); }
+
+/* remove button, only in edit mode */
+.link-remove {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.1rem;
+  margin-left: -0.2rem;
+  transition: color 0.15s;
+}
+
+#links-card.editing .link-remove { display: inline-block; }
+.link-remove:hover { color: var(--danger); }
+
+#links-card.editing .link-item { cursor: default; }
+#links-card.editing .link-item:hover {
+  background: none;
+  border-color: var(--border);
+}
+#links-card.editing .link-item:hover span { color: var(--muted); }
+
+/* ── Add link form, only in edit mode ── */
+#add-link-form {
+  display: none;
+  gap: 0.5rem;
+  margin-top: 0.9rem;
+}
+
+#links-card.editing #add-link-form { display: flex; }
+
+#add-link-form input {
+  padding: 0.5rem 0.9rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#add-link-form input::placeholder { color: var(--muted); }
+#add-link-form input:focus { border-color: var(--accent); }
+#add-link-form input.invalid { border-color: var(--danger); }
+
+#add-url  { flex: 2; min-width: 180px; }
+#add-name { flex: 1; min-width: 120px; }
+
+#add-link-form button {
+  padding: 0.5rem 1.1rem;
+  background: var(--accent);
+  border: none;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#add-link-form button:hover { background: var(--accent-dim); }
 
 /* ── News ── */
 #news-list {
@@ -202,4 +302,5 @@ main {
   #search-form { max-width: 100%; width: 100%; }
   #clock { font-size: 3rem; }
   #news-list { grid-template-columns: 1fr; }
+  #add-link-form { flex-wrap: wrap; }
 }

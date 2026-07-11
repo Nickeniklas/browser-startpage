@@ -21,63 +21,21 @@
 
 <main>
 
-  <!-- ── Links — edit these ── -->
-  <div class="card">
-    <div class="card-title">Links</div>
-    <div id="links-grid">
-      <a class="link-item" href="https://youtube.com" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=youtube.com&sz=32" alt="">
-        <span>YouTube</span>
-      </a>
-      <a class="link-item" href="https://gmail.com" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=gmail.com&sz=32" alt="">
-        <span>Gmail</span>
-      </a>
-      <a class="link-item" href="https://calendar.google.com" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=calendar.google.com&sz=32" alt="">
-        <span>Calendar</span>
-      </a>
-      <a class="link-item" href="https://github.com" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=github.com&sz=32" alt="">
-        <span>GitHub</span>
-      </a>
-      <a class="link-item" href="https://news.ycombinator.com" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=news.ycombinator.com&sz=32" alt="">
-        <span>HN</span>
-      </a>
-      <a class="link-item" href="https://finance.yahoo.com" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=finance.yahoo.com&sz=32" alt="">
-        <span>Yahoo Finance</span>
-      </a>
-      <a class="link-item" href="https://www.tradingview.com/heatmap/stock/?color=change&dataset=SPX500&group=sector&size=market_cap_basic" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=tradingview.com&sz=32" alt="">
-        <span>S&amp;P 500 Heatmap</span>
-      </a>
-      <a class="link-item" href="https://claude.ai" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=claude.ai&sz=32" alt="">
-        <span>Claude</span>
-      </a>
-      <a class="link-item" href="https://nickeniklas.github.io/geofill/index.html" target="_blank" rel="noopener">
-        <img src="https://nickeniklas.github.io/geofill/assets/favicon.ico" alt="">
-        <span>GeoFill</span>
-      </a>
-      <a class="link-item" href="https://nickeniklas.github.io/tech-digest/index.html" target="_blank" rel="noopener">
-        <img src="https://nickeniklas.github.io/tech-digest/assets/favicon.svg" alt="">
-        <span>Tech Digest</span>
-      </a>
-      <a class="link-item" href="https://toukolanmestarit.fi/" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=toukolanmestarit.fi&sz=32" alt="">
-        <span>Toukolanmestarit</span>
-      </a>
-      <a class="link-item" href="https://www.suomi.fi/" target="_blank" rel="noopener">
-        <img src="https://www.google.com/s2/favicons?domain=www.suomi.fi&sz=32" alt="">
-        <span>Suomi.fi</span>
-      </a>
-      <a class="link-item" href="https://portfolio-site-5bt.pages.dev/" target="_blank" rel="noopener">
-        <img src="https://portfolio-site-5bt.pages.dev/favicon.svg" alt="">
-        <span>Portfolio</span>
-      </a>
+  <!-- ── Links — rendered from script.js, edit with ✎ ── -->
+  <div class="card" id="links-card">
+    <div class="card-header">
+      <div class="card-title">Links</div>
+      <div class="card-actions">
+        <button id="links-reset" title="Reset links to defaults">reset</button>
+        <button id="links-edit-toggle" title="Edit links">✎</button>
+      </div>
     </div>
+    <div id="links-grid"></div>
+    <form id="add-link-form" autocomplete="off">
+      <input id="add-url" type="text" placeholder="Paste URL…" spellcheck="false">
+      <input id="add-name" type="text" placeholder="Name (optional)" spellcheck="false">
+      <button type="submit">Add</button>
+    </form>
   </div>
 
   <!-- ── Hacker News ── -->
