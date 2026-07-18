@@ -142,7 +142,7 @@ async function loadNews() {
   const list = document.getElementById('news-list');
   try {
     const res = await fetch(
-      'https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=20'
+      'https://hn.algolia.com/api/v1/search?tags=front_page&hitsPerPage=40'
     );
     if (!res.ok) throw new Error(res.status);
     const { hits } = await res.json();

@@ -12,26 +12,28 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Root font size drives all rem-based scaling; bumped up on large monitors. */
+html { font-size: 16px; }
+@media (min-width: 1600px) {
+  html { font-size: 18px; }
+}
+
+/* ── Page: fills the viewport exactly, centered column on wide monitors ── */
 body {
+  height: 100dvh;
+  overflow: hidden;
+  max-width: 1400px;
+  margin-inline: auto;
   background: var(--bg);
   color: var(--text);
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  min-height: 100vh;
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   gap: 1.5rem;
   padding: 2rem 2.5rem;
 }
 
-/* ── Header ── */
-header {
-  display: flex;
-  align-items: center;
-  gap: 2.5rem;
-}
-
-#clock-block { flex-shrink: 0; }
-
+/* ── Header: clock only ── */
 #clock {
   font-size: 3.8rem;
   font-weight: 200;
@@ -48,50 +50,6 @@ header {
   margin-top: 0.3rem;
 }
 
-#search-form {
-  flex: 1;
-  display: flex;
-  max-width: 520px;
-}
-
-#search-input {
-  flex: 1;
-  padding: 0.8rem 1.1rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-right: none;
-  border-radius: 8px 0 0 8px;
-  color: var(--text);
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-#search-input::placeholder { color: var(--muted); }
-#search-input:focus { border-color: var(--accent); }
-
-#search-form button {
-  padding: 0 1.3rem;
-  background: var(--accent);
-  border: none;
-  border-radius: 0 8px 8px 0;
-  color: #fff;
-  font-size: 0.95rem;
-  cursor: pointer;
-  transition: background 0.15s;
-}
-
-#search-form button:hover { background: var(--accent-dim); }
-
-/* ── Single-column main: links on top, news fills the rest ── */
-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr;
-  gap: 1.25rem;
-  min-height: 0;
-}
-
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -100,6 +58,7 @@ main {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 0;
 }
 
 .card-header {
@@ -171,8 +130,8 @@ main {
 }
 
 .link-item img {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -234,8 +193,8 @@ main {
 #add-link-form input:focus { border-color: var(--accent); }
 #add-link-form input.invalid { border-color: var(--danger); }
 
-#add-url  { flex: 2; min-width: 180px; }
-#add-name { flex: 1; min-width: 120px; }
+#add-url  { flex: 2; min-width: 11.25rem; }
+#add-name { flex: 1; min-width: 7.5rem; }
 
 #add-link-form button {
   padding: 0.5rem 1.1rem;
@@ -254,6 +213,7 @@ main {
 #news-list {
   overflow-y: auto;
   flex: 1;
+  min-height: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-content: start;
@@ -295,11 +255,15 @@ main {
   text-align: center;
 }
 
-/* ── Responsive ── */
+/* ── Responsive: below this, 100dvh is too cramped, so let the page scroll ── */
 @media (max-width: 680px) {
-  body { padding: 1.25rem; }
-  header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-  #search-form { max-width: 100%; width: 100%; }
+  body {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+    grid-template-rows: auto auto auto;
+    padding: 1.25rem;
+  }
   #clock { font-size: 3rem; }
   #news-list { grid-template-columns: 1fr; }
   #add-link-form { flex-wrap: wrap; }

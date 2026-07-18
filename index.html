@@ -13,40 +13,32 @@
     <div id="clock">00:00:00</div>
     <div id="date"></div>
   </div>
-  <form id="search-form" action="https://duckduckgo.com/" method="get" target="_blank">
-    <input id="search-input" type="text" name="q" placeholder="Search DuckDuckGo…" autocomplete="off" autofocus>
-    <button type="submit">Search</button>
-  </form>
 </header>
 
-<main>
-
-  <!-- ── Links — rendered from script.js, edit with ✎ ── -->
-  <div class="card" id="links-card">
-    <div class="card-header">
-      <div class="card-title">Links</div>
-      <div class="card-actions">
-        <button id="links-reset" title="Reset links to defaults">reset</button>
-        <button id="links-edit-toggle" title="Edit links">✎</button>
-      </div>
-    </div>
-    <div id="links-grid"></div>
-    <form id="add-link-form" autocomplete="off">
-      <input id="add-url" type="text" placeholder="Paste URL…" spellcheck="false">
-      <input id="add-name" type="text" placeholder="Name (optional)" spellcheck="false">
-      <button type="submit">Add</button>
-    </form>
-  </div>
-
-  <!-- ── Hacker News ── -->
-  <div class="card">
-    <div class="card-title">Hacker News</div>
-    <div id="news-list">
-      <div class="news-status">Loading…</div>
+<!-- ── Links — rendered from script.js, edit with ✎ ── -->
+<div class="card" id="links-card">
+  <div class="card-header">
+    <div class="card-title">Links</div>
+    <div class="card-actions">
+      <button id="links-reset" title="Reset links to defaults">reset</button>
+      <button id="links-edit-toggle" title="Edit links">✎</button>
     </div>
   </div>
+  <div id="links-grid"></div>
+  <form id="add-link-form" autocomplete="off">
+    <input id="add-url" type="text" placeholder="Paste URL…" spellcheck="false">
+    <input id="add-name" type="text" placeholder="Name (optional)" spellcheck="false">
+    <button type="submit">Add</button>
+  </form>
+</div>
 
-</main>
+<!-- ── Hacker News ── -->
+<div class="card" id="news-card">
+  <div class="card-title">Hacker News</div>
+  <div id="news-list">
+    <div class="news-status">Loading…</div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
