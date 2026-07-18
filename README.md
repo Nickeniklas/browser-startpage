@@ -3,7 +3,7 @@
 A minimal dark-themed browser start page. No build tools, no dependencies — pure HTML, CSS, and JavaScript.
 
 Screenshot:
-<img width="1867" height="627" alt="image" src="https://github.com/user-attachments/assets/cf027e2a-8e3d-4cc8-862c-44d57c0a60f7" />
+<img width="1348" height="844" alt="Browser start page showing the clock, hotlinks, and Hacker News feed" src="demo-view.png" />
 
 
 ## Features
