@@ -66,7 +66,9 @@ function renderLinks() {
   const grid = document.getElementById('links-grid');
   grid.innerHTML = links.map((l, i) => `
     <a class="link-item" href="${esc(l.url)}" target="_blank" rel="noopener" data-index="${i}">
-      <img src="${esc(l.icon)}" alt="" onerror="this.style.visibility='hidden'">
+      <img src="${esc(l.icon)}" alt=""
+           data-fallback="${esc(favicon(new URL(l.url).hostname))}"
+           onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;this.dataset.fallback='';}else{this.style.visibility='hidden';}">
       <span>${esc(l.name)}</span>
       <button class="link-remove" title="Remove ${esc(l.name)}" aria-label="Remove ${esc(l.name)}">&times;</button>
     </a>`).join('');
@@ -115,7 +117,10 @@ document.getElementById('add-link-form').addEventListener('submit', (e) => {
   const name = nameInput.value.trim() ||
     host.split('.')[0].charAt(0).toUpperCase() + host.split('.')[0].slice(1);
 
-  links.push({ name, url: url.href, icon: favicon(url.hostname) });
+  // Prefer the site's own favicon at the link's path (handles project subpaths);
+  // renderLinks() falls back to Google's cache if it 404s.
+  const localIcon = new URL('./favicon.ico', url.href).href;
+  links.push({ name, url: url.href, icon: localIcon });
   saveLinks();
   renderLinks();
   urlInput.value = '';
